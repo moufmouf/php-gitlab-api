@@ -17,6 +17,7 @@ use Gitlab\HttpClient\Listener\PaginationListener;
  *
  * @property-read \Gitlab\Api\Groups $groups
  * @property-read \Gitlab\Api\Issues $issues
+ * @property-read \Gitlab\Api\Jobs $jobs
  * @property-read \Gitlab\Api\MergeRequests $merge_requests
  * @property-read \Gitlab\Api\MergeRequests $mr
  * @property-read \Gitlab\Api\Milestones $milestones
@@ -118,6 +119,10 @@ class Client
 
             case 'issues':
                 $api = new Api\Issues($this);
+                break;
+
+            case 'jobs':
+                $api = new Api\Jobs($this);
                 break;
 
             case 'mr':
